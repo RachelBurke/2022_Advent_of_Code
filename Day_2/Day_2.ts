@@ -10,7 +10,7 @@ function getMatchData() {
 const draws = [['A', 'X'], ['B', 'Y'], ['C', 'Z']];
 const wins = [['A', 'Y'], ['B', 'Z'], ['C', 'X']];
 const losses = [['A', 'Z'], ['B', 'X'], ['C', 'Y']];
-const points = { 'A': 1, 'B': 2, 'C': 3, 'X': 1, 'Y': 2, 'Z': 3 };
+const points: { [key: string]: number } = { 'A': 1, 'B': 2, 'C': 3, 'X': 1, 'Y': 2, 'Z': 3 };
 
 
 getMatchData().then((data: string) => {
@@ -44,17 +44,17 @@ getMatchData().then((data: string) => {
         const playerChoices = match.split(' ');
 
         if (playerChoices[1] == 'X') {
-            const result = losses.find(result => result[0] === playerChoices[0])
+            const result = losses.find(result => result[0] === playerChoices[0])!;
             matchesResults.push(points[result[1]] + 0);
         }
 
         if (playerChoices[1] == 'Y') {
-            const result = draws.find(result => result[0] === playerChoices[0])
+            const result = draws.find(result => result[0] === playerChoices[0])!;
             matchesResults.push(points[result[1]] + 3);
         }
 
         if (playerChoices[1] == 'Z') {
-            const result = wins.find(result => result[0] === playerChoices[0])
+            const result = wins.find(result => result[0] === playerChoices[0])!;
             matchesResults.push(points[result[1]] + 6);
         }
     });
