@@ -20,7 +20,7 @@ getCargoData().then((data: string) => {
             const dirNumbers: Array<number> = [];
 
             directions.forEach((direction) => {    
-                const dirNumber = direction.replace(/[^0-9/]/gi, ''); 
+                const dirNumber = direction.replace(/[^0-9]/gi, ''); 
                 if(!isNaN(parseInt(dirNumber))) {
                     dirNumbers.push(parseInt(dirNumber));
                 }
@@ -34,7 +34,7 @@ getCargoData().then((data: string) => {
                     stacks.push([]);
                 }
     
-                const cargo = entry.replace(/[^A-Z/]/gi, ''); 
+                const cargo = entry.replace(/[^A-Z]/gi, ''); 
                 if(cargo) {
                     stacks[index].push(cargo);
                 }
@@ -66,7 +66,7 @@ getCargoData().then((data: string) => {
 
     // Part 2
     movedCrates = stacks.map(stack => [...stack]);
-    
+
     instructions.forEach((instruction) => {
         const num = instruction[0];
         const from = instruction[1] - 1;

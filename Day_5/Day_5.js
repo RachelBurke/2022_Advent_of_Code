@@ -24,7 +24,7 @@ getCargoData().then(function (data) {
             var directions = line.split(' ');
             var dirNumbers_1 = [];
             directions.forEach(function (direction) {
-                var dirNumber = direction.replace(/[^0-9/]/gi, '');
+                var dirNumber = direction.replace(/[^0-9]/gi, '');
                 if (!isNaN(parseInt(dirNumber))) {
                     dirNumbers_1.push(parseInt(dirNumber));
                 }
@@ -37,7 +37,7 @@ getCargoData().then(function (data) {
                 if (!stacks[index]) {
                     stacks.push([]);
                 }
-                var cargo = entry.replace(/[^A-Z/]/gi, '');
+                var cargo = entry.replace(/[^A-Z]/gi, '');
                 if (cargo) {
                     stacks[index].push(cargo);
                 }
