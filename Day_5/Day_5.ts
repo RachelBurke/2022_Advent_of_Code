@@ -15,7 +15,7 @@ getCargoData().then((data: string) => {
     const instructions: Array<Array<number>> = [];
     // Parse Data
     cargoData.forEach((line) => {
-        if(line.match(/[a-z/]/g)) {
+        if(line.match(/[a-z]/g)) {
             const directions = line.split(' ');
             const dirNumbers: Array<number> = [];
 

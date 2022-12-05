@@ -20,7 +20,7 @@ getCargoData().then(function (data) {
     var instructions = [];
     // Parse Data
     cargoData.forEach(function (line) {
-        if (line.match(/[a-z/]/g)) {
+        if (line.match(/[a-z]/g)) {
             var directions = line.split(' ');
             var dirNumbers_1 = [];
             directions.forEach(function (direction) {
