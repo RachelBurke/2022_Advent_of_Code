@@ -1,51 +1,55 @@
-const fs = require('fs');
-const util = require('util');
+const fs = require("fs");
+const util = require("util");
 
 const readFile = util.promisify(fs.readFile);
 
 function getDataStream() {
-    return readFile('./Day_6_Input.txt', 'utf8');
+  return readFile("./Day_6_Input.txt", "utf8");
 }
 
 function getLastChars(data: string, start: number, numChars: number) {
-    let lastChars = [];
-    for (let j = start; j >= start - numChars; j--) {
-        lastChars.push(data[j]);
-    }
+  let lastChars = [];
+  for (let j = start; j >= start - numChars; j--) {
+    lastChars.push(data[j]);
+  }
 
-    return lastChars;
+  return lastChars;
 }
 
 getDataStream().then((data: string) => {
-    // Part 1
-    let count = 0;
+  // Part 1
+  let count = 0;
 
-    for (let i = 3; i < data.length; i++) {
-        const uniqueChars = getLastChars(data, i, 3).filter((v, i, a) => a.indexOf(v) === i);
+  for (let i = 3; i < data.length; i++) {
+    const uniqueChars = getLastChars(data, i, 3).filter(
+      (v, i, a) => a.indexOf(v) === i
+    );
 
-        if (uniqueChars.length == 4) {
-            count = i + 1;
-            break;
-        }
-
-        count++;
+    if (uniqueChars.length == 4) {
+      count = i + 1;
+      break;
     }
 
-    console.log("First Marker at Character " + count);
+    count++;
+  }
 
-    // Part 2
-    count = 0;
+  console.log("First Marker at Character " + count); // 1658
 
-    for (let i = 13; i < data.length; i++) {
-        const uniqueChars = getLastChars(data, i, 13).filter((v, i, a) => a.indexOf(v) === i);
+  // Part 2
+  count = 0;
 
-        if (uniqueChars.length == 14) {
-            count = i + 1;
-            break;
-        }
+  for (let i = 13; i < data.length; i++) {
+    const uniqueChars = getLastChars(data, i, 13).filter(
+      (v, i, a) => a.indexOf(v) === i
+    );
 
-        count++;
+    if (uniqueChars.length == 14) {
+      count = i + 1;
+      break;
     }
 
-    console.log("Second Marker at Character " + count);
+    count++;
+  }
+
+  console.log("Second Marker at Character " + count); // 2260
 });
