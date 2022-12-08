@@ -62,7 +62,7 @@ getCargoData().then((data: string) => {
 
     let result = "";
     movedCrates.forEach((stack) => result = result.concat((stack[stack.length -1])));
-    console.log("Part 1 Stack Tops: " + result);
+    console.log("Part 1 Stack Tops: " + result); // GRTSWNJHH
 
     // Part 2
     movedCrates = stacks.map(stack => [...stack]);
@@ -92,6 +92,6 @@ getCargoData().then((data: string) => {
 
     result = "";
     movedCrates.forEach((stack) => result = result.concat((stack[stack.length -1])));
-    console.log("Part 2 Stack Tops: " + result);
+    console.log("Part 2 Stack Tops: " + result); // QLFQDBBHM
 
 });
